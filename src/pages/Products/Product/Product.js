@@ -22,7 +22,7 @@ const Product = ({ product }) => {
               <img
                 src={image}
                 alt=""
-                style={{ width: "60%", objectFit: "cover" }}
+                style={{ width: "180px", objectFit: "cover" }}
               />
             </Box>
             <Typography

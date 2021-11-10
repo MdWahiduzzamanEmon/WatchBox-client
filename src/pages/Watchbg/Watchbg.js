@@ -8,10 +8,8 @@ const Watchbg = () => {
         <Box>
           <img src={wtachBg} alt="" className="WatchBgImage" />
         </Box>
-        <Typography>
-          <h3 >
-            -Featured <span style={{ color: "#21a06a" }}>Products-</span>
-          </h3>
+        <Typography variant="h4" sx={{my:4}}>
+          -Featured <span style={{ color: "#21a06a" }}>Products-</span>
         </Typography>
       </div>
     );

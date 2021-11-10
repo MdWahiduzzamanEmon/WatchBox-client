@@ -2,14 +2,12 @@ import React from "react";
 import {
   AppBar,
   Toolbar,
-  CssBaseline,
   Typography,
   useTheme,
   useMediaQuery,
 } from "@mui/material";
 import { Link, NavLink } from "react-router-dom";
 import DrawerComponent from "./DrawerComponent";
-import logo from '../../images/WatchBox_Wordmark_RGB_Black.svg'
 import { Box } from "@mui/system";
 
 
@@ -25,7 +23,13 @@ function Navbar() {
       style={{ backgroundColor: "white", borderBottom: "3px solid #21a06a" }}
     >
       {/* <CssBaseline /> */}
-      <Toolbar style={{ display: "flex", justifyContent: "space-between",alignItems:"center" }}>
+      <Toolbar
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
         <Box>
           <Link to="/" className="Link">
             <Typography
@@ -44,7 +48,7 @@ function Navbar() {
           ) : (
             <div>
               <NavLink
-                to="/"
+                to="/home"
                 style={(isActive) => ({
                   color: isActive ? "#21a06a" : "#000",
                   textDecoration: "none",
@@ -55,7 +59,7 @@ function Navbar() {
                 Home
               </NavLink>
               <NavLink
-                to="/about"
+                to="/allProducts"
                 style={(isActive) => ({
                   color: isActive ? "#21a06a" : "#000",
                   textDecoration: "none",
@@ -63,7 +67,7 @@ function Navbar() {
                   margin: "0 10px",
                 })}
               >
-                About
+                All Products
               </NavLink>
               <NavLink
                 to="/contact"

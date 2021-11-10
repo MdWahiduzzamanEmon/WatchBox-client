@@ -12,7 +12,7 @@ import SingleProductDetails from "../SingleProductDetails/SingleProductDetails";
            <Route exact path="/">
              <Home />
            </Route>
-           <Route path="/home">
+           <Route exact path="/home">
              <Home />
            </Route>
            <Route path="/allProducts">

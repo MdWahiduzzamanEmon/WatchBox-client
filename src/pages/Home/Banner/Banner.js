@@ -50,9 +50,13 @@ const Banner = () => {
             Moser & Cie, and more. Our collection is always growing. Yours
             should, too.
           </Typography>
-          <Button variant="outlined" sx={{ m: 5, backgroundColor: "#21a06a", color: "#fff" }} onClick={ ()=>{
-            history.push('/allProducts')
-          }}>
+          <Button
+            variant="outlined"
+            sx={{ m: 5, backgroundColor: "#21a06a", color: "#fff" }}
+            onClick={() => {
+              history.push("/allProducts");
+            }}
+          >
             Explore Watches
           </Button>
         </Box>

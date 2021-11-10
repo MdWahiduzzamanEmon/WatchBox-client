@@ -21,7 +21,7 @@ function DrawerComponent() {
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
               <NavLink
-                to="/"
+                to="/home"
                 style={(isActive) => ({
                   color: isActive ? "#21a06a" : "#000",
                   textDecoration: "none",
@@ -36,7 +36,7 @@ function DrawerComponent() {
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
               <NavLink
-                to="/about"
+                to="/allProducts"
                 style={(isActive) => ({
                   color: isActive ? "#21a06a" : "#000",
                   textDecoration: "none",
@@ -44,7 +44,7 @@ function DrawerComponent() {
                   margin: "0 10px",
                 })}
               >
-                About
+                All Products
               </NavLink>
             </ListItemText>
           </ListItem>
@@ -81,7 +81,7 @@ function DrawerComponent() {
         </List>
       </Drawer>
       <IconButton onClick={() => setOpenDrawer(!openDrawer)}>
-              <MenuIcon style={ {color:"#21a06a"}}/>
+        <MenuIcon style={{ color: "#21a06a" }} />
       </IconButton>
     </>
   );
