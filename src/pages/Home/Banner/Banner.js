@@ -2,7 +2,10 @@ import { Button, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
 import bannerBg from '../../../images/Greubel_PLP_Header_990x618.jpg'
+import { useHistory } from "react-router-dom";
+
 const Banner = () => {
+  const history = useHistory();
     return (
       <div
         style={{
@@ -12,7 +15,7 @@ const Banner = () => {
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           width: "100%",
-          height: "70vh",
+          height: "580px",
           backgroundBlendMode: "overlay",
           display: "flex",
           justifyContent: "center",
@@ -47,7 +50,9 @@ const Banner = () => {
             Moser & Cie, and more. Our collection is always growing. Yours
             should, too.
           </Typography>
-          <Button variant="outlined" sx={{ m: 5, backgroundColor: "#21a06a",color:"#fff" }}>
+          <Button variant="outlined" sx={{ m: 5, backgroundColor: "#21a06a", color: "#fff" }} onClick={ ()=>{
+            history.push('/allProducts')
+          }}>
             Explore Watches
           </Button>
         </Box>
