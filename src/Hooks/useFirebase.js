@@ -9,6 +9,7 @@ import {
   signOut,
 } from "firebase/auth";
 import swal from "sweetalert";
+import axios from "axios";
 initializeFirebaseApp();
 
 
@@ -39,6 +40,7 @@ const useFirebase = () => {
           .then((result) => {
             setUser(result.user);
             updateName();
+            saveUserInformation(formValue?.name, formValue?.email,"POST");
               swal({
                 text: "Register successful!",
                 icon: "success",
@@ -129,7 +131,18 @@ const useFirebase = () => {
       });
 
   }
-
+//save userAuthentication information 
+  const saveUserInformation = (name, email, Method) => {
+    const data={name,email}
+    fetch("http://localhost:5000/userInfo", {
+      method: Method,
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }).then((res) => res.json());
+  }
+  
   return {
     handleFormFiled,
     formValue,

@@ -1,11 +1,14 @@
 import { Button, TextField } from '@mui/material';
+import axios from 'axios';
 import React, { useState } from 'react';
-
+import useAuth from '../../../Hooks/useAuth'
+import swal from "sweetalert";
 
 
 const ProductAddForm = ({ singleProduct }) => {
-
-  const [fieldValue, setFieldVAlue] = useState({});
+  const { user } = useAuth();
+  const values = { name: user?.displayName, email: user?.email };
+  const [fieldValue, setFieldVAlue] = useState(values);
   const handleChange = (e) => {
     const field = e.target.name;
     const value = e.target.value;
@@ -14,14 +17,28 @@ const ProductAddForm = ({ singleProduct }) => {
     setFieldVAlue(newValue);
   };
     const onSubmit = (e) => {
-        const data = {
-            ...fieldValue,
-             product_name: singleProduct.name,
+        const dataVAlue = {
+          ...fieldValue,
+          product_name: singleProduct.name,
           price: singleProduct.price,
-         
-        };
+          number: fieldValue.number,
+      };
+      
+      axios
+        .post("http://localhost:5000/buyingdetails/", dataVAlue)
+        .then((res) => {
+          if (res.data.insertedId) {
+            swal({
+              text: "Purchase Successful",
+              icon: "success",
+            });
+            e.target.reset();
+            setFieldVAlue({});
+          }
+        });
+
     e.preventDefault();
-    console.log(data);
+
   };
 
   return (
@@ -30,9 +47,9 @@ const ProductAddForm = ({ singleProduct }) => {
         <TextField
           label="Name"
           type="text"
-          names="name"
+          name="name"
           onChange={handleChange}
-          defaultValue=""
+          defaultValue={user?.displayName}
           fullWidth
           variant="standard"
           margin="normal"
@@ -40,36 +57,50 @@ const ProductAddForm = ({ singleProduct }) => {
         <TextField
           label="Email"
           type="email"
-          names="email"
+          name="email"
           onChange={handleChange}
-          fullWidth
-          variant="standard"
-          margin="normal"
-        />
-        <TextField
-          label="Phone No"
-          type="text"
-          names="number"
-          onChange={handleChange}
-          defaultValue=""
+          defaultValue={user?.email}
           fullWidth
           variant="standard"
           margin="normal"
         />
         <TextField
           type="text"
-          names="product_name"
+          name="product_name"
           onChange={handleChange}
-          value={singleProduct?.name}
+          value={singleProduct?.name || ""}
           variant="standard"
           fullWidth
           margin="normal"
           readOnly
         />
         <TextField
-          value={singleProduct?.price}
+          label="Phone No"
+          type="text"
+          name="number"
+          onChange={handleChange}
+          fullWidth
           variant="standard"
-          names="price"
+          margin="normal"
+          required
+        />
+        <TextField
+          id="outlined-multiline-static"
+          label="Address"
+          multiline
+          rows={3}
+          name="address"
+          onChange={handleChange}
+          variant="standard"
+          margin="normal"
+          required
+          fullWidth
+        />
+
+        <TextField
+          value={singleProduct?.price || ""}
+          variant="standard"
+          name="price"
           fullWidth
           margin="normal"
           readOnly
@@ -78,6 +109,7 @@ const ProductAddForm = ({ singleProduct }) => {
           type="submit"
           variant="outlined"
           style={{ backgroundColor: "#21a06a", color: "#000" }}
+          // onClick={handlePurchase}
         >
           Purchase Now
         </Button>

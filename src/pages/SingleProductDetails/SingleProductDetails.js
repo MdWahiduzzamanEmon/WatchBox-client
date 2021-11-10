@@ -43,6 +43,8 @@ const SingleProductDetails = () => {
                     alt=""
                     style={{
                       width: "30%",
+                      height: "40%",
+                      objectFit:"cover"
                     }}
                   />
 
