@@ -1,17 +1,31 @@
 import React from 'react';
 import formBg from '../../../images/vecteezy_smart-watch-smartphone-low-poly-wireframe-vector-illustration_.jpg'
-import {Box, Button, Container, Grid, TextField, Typography} from "@mui/material";
-import { Link } from 'react-router-dom';
+import {Alert, Box, Button, Container, Grid, TextField, Typography} from "@mui/material";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import useAuth from '../../../Hooks/useAuth';
+import swal from 'sweetalert';
 
 
 
 const Register = () => {
-    const { handleFormFiled,  setFormValue } = useAuth();
-    const handleRegisterSubmit = e => {
-        e.preventDefault();
-        setFormValue({})
-        e.target.reset();
+  const { handleFormFiled, setFormValue, register, formValue, error } =
+    useAuth();
+  const history = useHistory();
+  const location = useLocation();
+  const uri = location?.state?.from || "/"
+  const handleRegisterSubmit = () => {
+      
+      console.log(formValue);
+        if (formValue.password !== formValue.password2) {
+             return swal({
+               text: "Password not matched!",
+               icon: "error",
+             });
+        }else{
+          register(history, uri);
+          setFormValue({});
+        }
+        
     }
     return (
       <Box
@@ -29,7 +43,7 @@ const Register = () => {
         <Container>
           <Grid container spacing={2}>
             <Grid item xs={12} md={6}>
-              <form onSubmit={handleRegisterSubmit}>
+              <form>
                 <Typography
                   variant="h5"
                   gutterBottom
@@ -62,6 +76,7 @@ const Register = () => {
                   id="filled-basic"
                   label="Password"
                   name="password"
+                  type="password"
                   variant="filled"
                   margin="normal"
                   fullWidth
@@ -72,6 +87,7 @@ const Register = () => {
                   id="filled-basic"
                   label="Retype-Password"
                   name="password2"
+                  type="password"
                   variant="filled"
                   margin="normal"
                   fullWidth
@@ -79,6 +95,7 @@ const Register = () => {
                   onChange={handleFormFiled}
                 />
                 <Button
+                  onClick={handleRegisterSubmit}
                   variant="contained"
                   sx={{ backgroundColor: "#000", color: "#fff", mt: 2 }}
                 >
@@ -94,6 +111,7 @@ const Register = () => {
                     Sign In
                   </Link>
                 </Typography>
+                {error && <Alert severity="error">{error}</Alert>}
               </form>
             </Grid>
           </Grid>

@@ -6,14 +6,15 @@ import {
   useTheme,
   useMediaQuery,
   Button,
+  Avatar,
 } from "@mui/material";
 import { Link, NavLink, useHistory } from "react-router-dom";
 import DrawerComponent from "./DrawerComponent";
 import { Box } from "@mui/system";
-
+import useAuth from '../../Hooks/useAuth'
 
 function Navbar() {
-
+const {user,signout}=useAuth();
   const history = useHistory();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -92,12 +93,41 @@ function Navbar() {
               >
                 FAQ
               </NavLink>
-
-                <Button variant="outlined" sx={{ backgroundColor: "#21a06a", color: "#000", mx: 5 }}
-                  onClick={() => {
-                    history.push("/register");
+              {user?.uid && (
+                <h2
+                  style={{
+                    color: "black",
+                    fontWeight: "bold",
+                    display: "inline-flex",
+                    margin: "0 10px",
                   }}
-                >Register</Button>
+                >
+                  {user.displayName}
+                </h2>
+              )}
+              {user.photoURL && (
+                <Avatar
+                  alt="Travis Howard"
+                  src={user.photoURL}
+                  sx={{ display: "inline-flex" }}
+                />
+              )}
+              {!user?.uid?<Button
+                variant="outlined"
+                sx={{ backgroundColor: "#21a06a", color: "#000", mx: 5 }}
+                onClick={() => {
+                  history.push("/register");
+                }}
+              >
+                Register
+              </Button>:
+              <Button
+                variant="outlined"
+                sx={{ backgroundColor: "#21a06a", color: "#000", mx: 1 }}
+                onClick={signout}
+              >
+                <i className="fas fa-sign-out-alt"></i>
+              </Button>}
             </div>
           )}
         </Box>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  Avatar,
   Button,
   Drawer,
   IconButton,
@@ -9,12 +10,12 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { NavLink, useHistory } from "react-router-dom";
-
+import useAuth from "../../Hooks/useAuth";
 
 
 function DrawerComponent() {
   const history = useHistory();
-
+const { user, signout } = useAuth();
   const [openDrawer, setOpenDrawer] = useState(false);
   return (
     <>
@@ -82,6 +83,25 @@ function DrawerComponent() {
           </ListItem>
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
+              {user?.uid && (
+                <h2
+                  style={{
+                    color: "black",
+                    fontWeight: "bold",
+                    display: "inline-flex",
+                    margin: "0 10px",
+                  }}
+                >
+                  {user.displayName}
+                </h2>
+              )}
+              {user.photoURL && (
+                <Avatar
+                  alt="Travis Howard"
+                  src={user.photoURL}
+                  sx={{ display: "inline-flex" }}
+                />
+              )}
               <Button
                 variant="outlined"
                 sx={{ backgroundColor: "#21a06a", color: "#000", mx: 5 }}
@@ -90,6 +110,13 @@ function DrawerComponent() {
                 }}
               >
                 Register
+              </Button>
+              <Button
+                variant="outlined"
+                sx={{ backgroundColor: "#21a06a", color: "#000", mx: 1 }}
+                onClick={signout}
+              >
+                <i className="fas fa-sign-out-alt"></i>
               </Button>
             </ListItemText>
           </ListItem>

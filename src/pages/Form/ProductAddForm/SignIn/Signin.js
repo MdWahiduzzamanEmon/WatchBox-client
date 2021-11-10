@@ -1,16 +1,22 @@
 import React from "react";
 import formBg from "../../../../images/vecteezy_smart-watch-smartphone-low-poly-wireframe-vector-illustration_.jpg"
-import { Box, Button, Container, Grid, TextField, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Alert, Box, Button, Container, Grid, TextField, Typography } from "@mui/material";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import useAuth from '../../../../Hooks/useAuth'
 
 const Signin = () => {
+const history = useHistory();
+const location = useLocation();
+const uri = location?.state?.from || "/";
+  const { handleFormFiled, setFormValue, handleSignIn, error, formValue } =
+    useAuth();
+  
+  const handleSignSubmit = (e) => {
+      e.preventDefault();
+      handleSignIn(history,uri);
+      setFormValue({});
+      console.log(formValue);
 
-    const { handleFormFiled, setFormValue } = useAuth();
-    const handleSignSubmit = e => {
-        e.preventDefault();
-        setFormValue({});
-        e.target.reset();
     }
     
     return (
@@ -30,9 +36,7 @@ const Signin = () => {
           {" "}
           <Grid container spacing={2}>
             <Grid item xs={12} md={6}>
-              <form
-                onSubmit={handleSignSubmit}
-              >
+              <form>
                 <Typography
                   variant="h5"
                   gutterBottom
@@ -55,6 +59,7 @@ const Signin = () => {
                   id="filled-basic"
                   label="Password"
                   name="password"
+                  type="password"
                   variant="filled"
                   margin="normal"
                   fullWidth
@@ -62,6 +67,7 @@ const Signin = () => {
                   onChange={handleFormFiled}
                 />
                 <Button
+                  onClick={handleSignSubmit}
                   variant="contained"
                   sx={{ backgroundColor: "#000", color: "#fff", mt: 2 }}
                   type="submit"
@@ -78,6 +84,7 @@ const Signin = () => {
                     Register
                   </Link>
                 </Typography>
+                {error && <Alert severity="error">{error}</Alert>}
               </form>
             </Grid>
           </Grid>
