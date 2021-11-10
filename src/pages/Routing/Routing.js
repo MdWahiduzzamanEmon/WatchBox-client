@@ -1,6 +1,8 @@
  import React from "react";
  import { BrowserRouter, Switch, Route } from "react-router-dom";
 import ExploreAllWatches from "../ExploreAllWatches/ExploreAllWatches";
+import Signin from "../Form/ProductAddForm/SignIn/Signin";
+import Register from "../Form/Register/Register";
  import Home from "../Home/Home/Home";
 import SingleProductDetails from "../SingleProductDetails/SingleProductDetails";
 
@@ -20,6 +22,12 @@ import SingleProductDetails from "../SingleProductDetails/SingleProductDetails";
            </Route>
            <Route path="/SingleProductDetails/:id">
              <SingleProductDetails />
+           </Route>
+           <Route path="/register">
+             <Register />
+           </Route>
+           <Route path="/signin">
+             <Signin />
            </Route>
          </Switch>
        </BrowserRouter>

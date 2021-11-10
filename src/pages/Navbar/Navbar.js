@@ -5,15 +5,16 @@ import {
   Typography,
   useTheme,
   useMediaQuery,
+  Button,
 } from "@mui/material";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useHistory } from "react-router-dom";
 import DrawerComponent from "./DrawerComponent";
 import { Box } from "@mui/system";
 
 
 function Navbar() {
 
-
+  const history = useHistory();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -91,6 +92,12 @@ function Navbar() {
               >
                 FAQ
               </NavLink>
+
+                <Button variant="outlined" sx={{ backgroundColor: "#21a06a", color: "#000", mx: 5 }}
+                  onClick={() => {
+                    history.push("/register");
+                  }}
+                >Register</Button>
             </div>
           )}
         </Box>

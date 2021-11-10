@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  Button,
   Drawer,
   IconButton,
   List,
@@ -7,11 +8,12 @@ import {
   ListItemText,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 
 
 
 function DrawerComponent() {
+  const history = useHistory();
 
   const [openDrawer, setOpenDrawer] = useState(false);
   return (
@@ -76,6 +78,19 @@ function DrawerComponent() {
               >
                 Faq
               </NavLink>
+            </ListItemText>
+          </ListItem>
+          <ListItem onClick={() => setOpenDrawer(false)}>
+            <ListItemText>
+              <Button
+                variant="outlined"
+                sx={{ backgroundColor: "#21a06a", color: "#000", mx: 5 }}
+                onClick={() => {
+                  history.push("/register");
+                }}
+              >
+                Register
+              </Button>
             </ListItemText>
           </ListItem>
         </List>
