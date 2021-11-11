@@ -13,12 +13,12 @@ const PrivateAdminRoute = ({ children, ...rest }) => {
       <Route
         {...rest}
         render={({ location }) =>
-          user.uid && isAdmin ? (
+          user?.email && isAdmin ? (
             children
           ) : (
             <Redirect
               to={{
-                pathname: "/",
+                pathname: "/dashboard",
                 state: { from: location },
               }}
             />

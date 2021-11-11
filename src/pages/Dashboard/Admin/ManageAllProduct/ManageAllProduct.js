@@ -11,23 +11,22 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import swal from "sweetalert";
-import useAuth from "../../../../Hooks/useAuth";
 
 const ManageAllProduct = () => {
-  const [userData, setUserData] = useState([]);
-    const { isLoading, setIsLoading } = useAuth();
+    const [userData, setUserData] = useState([]);
+
+    const [isLoading, setIsLoading ] = useState(true)
     useEffect(() => {
-      setIsLoading(true);
       setTimeout(() => {
-        setIsLoading(true);
-        fetch(`https://polar-journey-34409.herokuapp.com/allProducts/`)
+    setIsLoading(true)
+        fetch("https://polar-journey-34409.herokuapp.com/allProducts")
           .then((res) => res.json())
           .then((data) => {
             setUserData(data);
             setIsLoading(false);
           });
       }, 1000);
-    }, [setIsLoading]);
+    }, []);
 
   //delete
   const handleDelete = (id) => {
@@ -85,7 +84,7 @@ const ManageAllProduct = () => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {userData.map((row) => (
+                  {userData?.map((row) => (
                     <TableRow
                       key={row._id}
                       sx={{ "&:last-child td, &:last-child th": { border: 0 } }}

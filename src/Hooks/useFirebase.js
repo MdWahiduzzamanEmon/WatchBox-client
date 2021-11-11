@@ -22,7 +22,7 @@ const useFirebase = () => {
     const [user, setUser] = React.useState({})
   const [error, setError] = React.useState('');
   const [isLoading, setIsLoading] = React.useState(true)
-  const [isAdmin, setIsAdmin] = React.useState(false);
+  const [isAdmin, setIsAdmin] = React.useState(true);
     const auth = getAuth();
 
 
@@ -94,6 +94,7 @@ const useFirebase = () => {
   }
   //observe 
   React.useEffect(() => {
+    setIsLoading(true);
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);

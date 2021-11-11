@@ -27,7 +27,13 @@ const Dashboard = () => {
         <Box sx={{ flexGrow: 1, height: "800px" }}>
           <Grid container spacing={2}>
             <Grid item xs={12} md={2} sx={{ border: "1px solid gray" }}>
-              <Box sx={{ display:"flex",justifyContent: "space-between" ,alignItems:'center'}}>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
                 <Typography
                   variant="h5"
                   gutterBottom
@@ -159,30 +165,32 @@ const Dashboard = () => {
               </Box>
             </Grid>
             <Grid item xs={12} md={10}>
-              <Switch>
-                <Route exact path={path}>
-                  <MyOrder />
-                </Route>
-                <Route path={`${path}/payment`}>
-                  <Pay />
-                </Route>
+              <div>
+                <Switch>
+                  <Route exact path={path}>
+                    <MyOrder />
+                  </Route>
+                  <Route path={`${path}/payment`}>
+                    <Pay />
+                  </Route>
 
-                <Route path={`${path}/review`}>
-                  <Review />
-                </Route>
-                <PrivateAdminRoute path={`${path}/manageOrder`}>
-                  <ManageAll />
-                </PrivateAdminRoute>
-                <PrivateAdminRoute path={`${path}/manageAllProduct`}>
-                  <ManageAllProduct />
-                </PrivateAdminRoute>
-                <PrivateAdminRoute path={`${path}/makeAdmin`}>
-                  <MakeAdmin />
-                </PrivateAdminRoute>
-                <PrivateAdminRoute path={`${path}/addProduct`}>
-                  <AddProduct />
-                </PrivateAdminRoute>
-              </Switch>
+                  <Route path={`${path}/review`}>
+                    <Review />
+                  </Route>
+                  <PrivateAdminRoute path={`${path}/manageOrder`}>
+                    <ManageAll />
+                  </PrivateAdminRoute>
+                  <PrivateAdminRoute path={`${path}/manageAllProduct`}>
+                    <ManageAllProduct />
+                  </PrivateAdminRoute>
+                  <PrivateAdminRoute path={`${path}/makeAdmin`}>
+                    <MakeAdmin />
+                  </PrivateAdminRoute>
+                  <PrivateAdminRoute path={`${path}/addProduct`}>
+                    <AddProduct />
+                  </PrivateAdminRoute>
+                </Switch>
+              </div>
             </Grid>
           </Grid>
         </Box>
