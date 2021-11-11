@@ -93,6 +93,17 @@ const {user,signout}=useAuth();
               >
                 FAQ
               </NavLink>
+              {user.uid&&<NavLink
+                to="/dashboard"
+                style={(isActive) => ({
+                  color: isActive ? "#21a06a" : "#000",
+                  textDecoration: "none",
+                  fontWeight: "bold",
+                  margin: "0 10px",
+                })}
+              >
+                Dashboard
+              </NavLink>}
               {user?.uid && (
                 <h2
                   style={{

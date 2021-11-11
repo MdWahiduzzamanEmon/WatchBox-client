@@ -42,7 +42,7 @@ const ExploreAllWatches = () => {
         );
         setAfterFilterWatch(filterProduct);
  };
-console.log(afterFilterWatch);
+// console.log(afterFilterWatch);
 
     return (
       <>

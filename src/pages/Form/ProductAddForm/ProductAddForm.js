@@ -7,7 +7,7 @@ import swal from "sweetalert";
 
 const ProductAddForm = ({ singleProduct }) => {
   const { user } = useAuth();
-  const values = { name: user?.displayName, email: user?.email };
+  const values = { name: user?.displayName };
   const [fieldValue, setFieldVAlue] = useState(values);
   const handleChange = (e) => {
     const field = e.target.name;
@@ -22,6 +22,8 @@ const ProductAddForm = ({ singleProduct }) => {
           product_name: singleProduct.name,
           price: singleProduct.price,
           number: fieldValue.number,
+          email: user?.email,
+          status:"Pending"
       };
       
       axios
@@ -59,10 +61,11 @@ const ProductAddForm = ({ singleProduct }) => {
           type="email"
           name="email"
           onChange={handleChange}
-          defaultValue={user?.email}
+          value={user?.email || ""}
           fullWidth
           variant="standard"
           margin="normal"
+          readOnly
         />
         <TextField
           type="text"

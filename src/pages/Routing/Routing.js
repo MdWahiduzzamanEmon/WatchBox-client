@@ -6,7 +6,7 @@ import Signin from "../Form/ProductAddForm/SignIn/Signin";
 import Register from "../Form/Register/Register";
  import Home from "../Home/Home/Home";
 import SingleProductDetails from "../SingleProductDetails/SingleProductDetails";
-
+import Dashboard from '../Dashboard/Dashboard';
  const Routing = () => {
    return (
      <div>
@@ -29,6 +29,9 @@ import SingleProductDetails from "../SingleProductDetails/SingleProductDetails";
            </Route>
            <Route path="/signin">
              <Signin />
+           </Route>
+           <Route path="/dashboard">
+             <Dashboard />
            </Route>
          </Switch>
        </BrowserRouter>
