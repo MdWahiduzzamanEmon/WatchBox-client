@@ -22,7 +22,7 @@ const Product = ({ product }) => {
               <img
                 src={image}
                 alt=""
-                style={{ width: "180px", objectFit: "cover" }}
+                style={{ width: "180px",height:"200px", objectFit: "cover" }}
               />
             </Box>
             <Typography
@@ -42,7 +42,7 @@ const Product = ({ product }) => {
             <Box sx={{ display: "flex", justifyContent: "space-between" }}>
               <Rating
                 name="text-feedback"
-                value={rating}
+                value={parseFloat(rating)}
                 readOnly
                 precision={0.5}
                 emptyIcon={
@@ -60,11 +60,14 @@ const Product = ({ product }) => {
                   borderRadius: "20px",
                 }}
               >
-                ${price}
+                ${parseFloat(price)}
               </Typography>
             </Box>
             <Box>
-                        <Link to={`/SingleProductDetails/${_id}`} style={ {textDecoration:"none"}}>
+              <Link
+                to={`/SingleProductDetails/${_id}`}
+                style={{ textDecoration: "none" }}
+              >
                 <Button
                   variant="outlined"
                   sx={{ m: 3, backgroundColor: "#21a06a", color: "#000" }}

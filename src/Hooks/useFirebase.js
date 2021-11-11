@@ -155,6 +155,7 @@ const useFirebase = () => {
     isLoading,
     handleSignIn,
     signout,
+    setIsLoading,
   };
 };
 
