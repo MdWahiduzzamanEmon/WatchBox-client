@@ -27,7 +27,7 @@ const ProductAddForm = ({ singleProduct }) => {
       };
       
       axios
-        .post("http://localhost:5000/buyingdetails/", dataVAlue)
+        .post("https://polar-journey-34409.herokuapp.com/buyingdetails/", dataVAlue)
         .then((res) => {
           if (res.data.insertedId) {
             swal({

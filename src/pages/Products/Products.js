@@ -11,7 +11,7 @@ const Products = () => {
         setIsLoading(true);
         setTimeout(() => {
               setIsLoading(true);
-             axios.get("http://localhost:5000/products").then((res) => {
+             axios.get("https://polar-journey-34409.herokuapp.com/products").then((res) => {
                  setProducts(res.data);
                    setIsLoading(false);
              });

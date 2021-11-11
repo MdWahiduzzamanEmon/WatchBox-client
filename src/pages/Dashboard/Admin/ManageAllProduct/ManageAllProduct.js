@@ -20,7 +20,7 @@ const ManageAllProduct = () => {
       setIsLoading(true);
       setTimeout(() => {
         setIsLoading(true);
-        fetch(`http://localhost:5000/allProducts/`)
+        fetch(`https://polar-journey-34409.herokuapp.com/allProducts/`)
           .then((res) => res.json())
           .then((data) => {
             setUserData(data);
@@ -40,7 +40,7 @@ const ManageAllProduct = () => {
     }).then((willDelete) => {
       if (willDelete) {
         axios
-          .delete(`http://localhost:5000/deleteProducts/${id}`)
+          .delete(`https://polar-journey-34409.herokuapp.com/deleteProducts/${id}`)
           .then((res) => {
             if (res.data.deletedCount) {
               swal("Order has been deleted!", {

@@ -15,7 +15,7 @@ const AddProduct = () => {
     }
     const handlePost = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:5000/addProduct", input)
+        axios.post("https://polar-journey-34409.herokuapp.com/addProduct", input)
             .then(res => {
                 if (res.data.insertedId) {
                     swal({

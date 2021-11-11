@@ -15,7 +15,7 @@ const MyOrder = () => {
 const [userData,setUserData]=useState([]);
 const {user}=useAuth();
     useEffect(() => {
-      fetch(`http://localhost:5000/buyingdetails/${user.email}`)
+      fetch(`https://polar-journey-34409.herokuapp.com/buyingdetails/${user.email}`)
         .then((res) => res.json())
         .then((data) => {
           setUserData(data);
@@ -33,7 +33,7 @@ const {user}=useAuth();
                     }).then((willDelete) => {
                         if (willDelete) {
                           axios
-                            .delete(`http://localhost:5000/buyingdetails/${id}`)
+                            .delete(`https://polar-journey-34409.herokuapp.com/buyingdetails/${id}`)
                             .then((res) => {
                               if (res.data.deletedCount) {
                                 swal("Order has been deleted!", {

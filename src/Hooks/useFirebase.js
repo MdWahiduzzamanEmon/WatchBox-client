@@ -136,7 +136,7 @@ const useFirebase = () => {
 //save userAuthentication information 
   const saveUserInformation = (name, email, Method) => {
     const data={name,email}
-    fetch("http://localhost:5000/userInfo", {
+    fetch("https://polar-journey-34409.herokuapp.com/userInfo", {
       method: Method,
       headers: {
         "content-type": "application/json",

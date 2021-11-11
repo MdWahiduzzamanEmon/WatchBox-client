@@ -13,7 +13,7 @@ const SingleProductDetails = () => {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(true);
-      axios.get(`http://localhost:5000/product/${id}`).then((res) => {
+      axios.get(`https://polar-journey-34409.herokuapp.com/product/${id}`).then((res) => {
         setSingleProduct(res.data);
         setIsLoading(false);
       });

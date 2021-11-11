@@ -20,7 +20,7 @@ const ManageAll = () => {
     const [getUpdateValue, setGetUpdateValue] = useState('')
     const [modified,setModified]=useState(false)
   useEffect(() => {
-    axios.get("http://localhost:5000/buyingAlldetails").then((res) => {
+    axios.get("https://polar-journey-34409.herokuapp.com/buyingAlldetails").then((res) => {
       setUserAllData(res.data);
     });
   }, [modified]);
@@ -36,7 +36,7 @@ const ManageAll = () => {
     }).then((willDelete) => {
       if (willDelete) {
         axios
-          .delete(`http://localhost:5000/buyingdetails/${id}`)
+          .delete(`https://polar-journey-34409.herokuapp.com/buyingdetails/${id}`)
           .then((res) => {
             if (res.data.deletedCount) {
               swal("User Order has been deleted!", {
@@ -66,7 +66,7 @@ const ManageAll = () => {
     }
     const handleupdate = (id) => {
          axios
-           .put(`http://localhost:5000/buyingdetails/${id}`, getUpdateValue)
+           .put(`https://polar-journey-34409.herokuapp.com/buyingdetails/${id}`, getUpdateValue)
            .then((res) => {
              if (res.data.modifiedCount) {
                  swal("Satus Updated Successful!");

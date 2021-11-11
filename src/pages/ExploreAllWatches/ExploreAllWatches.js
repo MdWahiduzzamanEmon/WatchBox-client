@@ -25,7 +25,7 @@ const ExploreAllWatches = () => {
         setIsLoading(true);
         setTimeout(() => {
             setIsLoading(true);
-             axios.get("http://localhost:5000/allProducts").then((res) => {
+             axios.get("https://polar-journey-34409.herokuapp.com/allProducts").then((res) => {
                setProducts(res.data);
                  setAfterFilterWatch(res.data);
                  setIsLoading(false);
