@@ -7,6 +7,7 @@ import {
   onAuthStateChanged,
   updateProfile,
   signOut,
+  getIdToken,
 } from "firebase/auth";
 import swal from "sweetalert";
 
@@ -20,8 +21,10 @@ const useFirebase = () => {
     const [formValue, setFormValue] = React.useState({});
     const [user, setUser] = React.useState({})
   const [error, setError] = React.useState('');
-  const [isLoading, setIsLoading]= React.useState(true)
+  const [isLoading, setIsLoading] = React.useState(true)
+  const [isAdmin, setIsAdmin] = React.useState(false);
     const auth = getAuth();
+
 
 //get input value
     const handleFormFiled = (e) => {
@@ -94,6 +97,9 @@ const useFirebase = () => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
+        getIdToken(user).then(idToken => {
+          localStorage.setItem("idToken", idToken);
+        })
       } else {
         setUser({})
       }
@@ -125,7 +131,7 @@ const useFirebase = () => {
           text: "Logout successful!",
           icon: "success",
           buttons: true,
-        });
+        })
       })
       .catch((error) => {})
       .finally(() => {
@@ -144,7 +150,14 @@ const useFirebase = () => {
       body: JSON.stringify(data),
     }).then((res) => res.json());
   }
-  
+
+  //get user data     
+  React.useEffect(() => {
+    fetch(`https://polar-journey-34409.herokuapp.com/userData/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => setIsAdmin(data));
+  }, [user?.email]);
+
   return {
     handleFormFiled,
     formValue,
@@ -156,6 +169,7 @@ const useFirebase = () => {
     handleSignIn,
     signout,
     setIsLoading,
+    isAdmin,
   };
 };
 

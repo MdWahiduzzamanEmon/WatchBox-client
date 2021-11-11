@@ -117,7 +117,7 @@ const { user, signout } = useAuth();
                   sx={{ display: "inline-flex" }}
                 />
               )}
-              <Button
+              {!user.uid ?<Button
                 variant="outlined"
                 sx={{ backgroundColor: "#21a06a", color: "#000", mx: 5 }}
                 onClick={() => {
@@ -125,14 +125,14 @@ const { user, signout } = useAuth();
                 }}
               >
                 Register
-              </Button>
+              </Button>:
               <Button
                 variant="outlined"
                 sx={{ backgroundColor: "#21a06a", color: "#000", mx: 1 }}
                 onClick={signout}
               >
                 <i className="fas fa-sign-out-alt"></i>
-              </Button>
+              </Button>}
             </ListItemText>
           </ListItem>
         </List>
