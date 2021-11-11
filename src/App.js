@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Routing from './pages/Routing/Routing';
 import AuthProvider from './Context/AuthProvider';
