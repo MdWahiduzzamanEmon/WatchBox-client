@@ -30,15 +30,16 @@ const Dashboard = () => {
               <Box
                 sx={{
                   display: "flex",
-                  justifyContent: "space-between",
+                  // justifyContent: "space-between",
                   alignItems: "center",
+                  flexDirection:"column"
                 }}
               >
                 <Typography
                   variant="h5"
                   gutterBottom
                   component="div"
-                  sx={{ fontWeight: "bold", textAlign: "left", p: 2 }}
+                  sx={{ fontWeight: "bold", textAlign: "left", }}
                 >
                   Dashboard
                   <Typography variant="caption" display="block" gutterBottom>
@@ -47,7 +48,7 @@ const Dashboard = () => {
                 </Typography>
                 <Button
                   variant="outlined"
-                  sx={{ backgroundColor: "#21a06a", color: "#000", mx: 1 }}
+                  sx={{ backgroundColor: "#21a06a", color: "#000", m: 1 }}
                   onClick={signout}
                 >
                   <i className="fas fa-sign-out-alt"></i>
