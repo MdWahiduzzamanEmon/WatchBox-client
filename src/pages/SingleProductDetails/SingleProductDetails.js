@@ -73,7 +73,7 @@ const SingleProductDetails = () => {
                   </Typography>
                   <Rating
                     name="text-feedback"
-                    value={rating || null}
+                    value={parseFloat(rating) || ""}
                     readOnly
                     precision={0.5}
                     emptyIcon={

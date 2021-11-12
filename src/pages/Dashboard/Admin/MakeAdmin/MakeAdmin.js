@@ -36,10 +36,11 @@ const MakeAdmin = () => {
 
     return (
       <div>
-        <Container sx={{ mt: 10, width: "50%" }}>
+        <Container className="makeAdminField">
           <TextField
-            fullWidth
-            id="input-with-icon-textfield"
+            // fullWidth
+            required
+            className="adminTextField"
             label="Admin Email"
             onChange={handleAdminInputValue}
             InputProps={{

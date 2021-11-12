@@ -1,4 +1,4 @@
-import { Button, Container } from "@mui/material";
+import { Button, CircularProgress, Container } from "@mui/material";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -14,14 +14,21 @@ import swal from "sweetalert";
 const MyOrder = () => {
   const [userData, setUserData] = useState([]);
   const { user } = useAuth();
+  const [isSpinner, setIsSpinener] = useState(true);
   useEffect(() => {
-    fetch(
-      `https://polar-journey-34409.herokuapp.com/buyingdetails/${user.email}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setUserData(data);
-      });
+    setIsSpinener(true);
+    setTimeout(() => {
+       setIsSpinener(true);
+      fetch(
+        `https://polar-journey-34409.herokuapp.com/buyingdetails/${user.email}`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          setUserData(data);
+           setIsSpinener(false);
+        });
+    }, 1000);
+    
   }, [user.email]);
 
   //delete
@@ -58,65 +65,75 @@ const MyOrder = () => {
   return (
     <div>
       <Container sx={{ my: 10 }}>
-        <TableContainer component={Paper}>
-          <Table aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell>Product Model</TableCell>
-                <TableCell align="left">Number</TableCell>
-                <TableCell align="left">Address</TableCell>
-                <TableCell align="left">Status</TableCell>
-                <TableCell align="left">Action</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {userData?.map((row) => (
-                <TableRow
-                  key={row?._id}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                >
-                  <TableCell
-                    component="th"
-                    scope="row"
-                    sx={{ fontWeight: "bold" }}
-                  >
-                    {row?.product_name}
-                  </TableCell>
-                  <TableCell align="left" sx={{ fontWeight: "bold" }}>
-                    {row?.number}
-                  </TableCell>
-                  <TableCell align="left" sx={{ fontWeight: "bold" }}>
-                    {row?.address}
-                  </TableCell>
-                  <TableCell align="left" sx={{ fontWeight: "bold" }}>
-                    {row?.status === "Shipped" && (
-                      <span style={{ color: "green" }}>{row?.status}</span>
-                    )}
-                    {row?.status === "Cancel" && (
-                      <span style={{ color: "red" }}>{row?.status}</span>
-                    )}
-                    {row?.status === "Pending" && (
-                      <span style={{ color: "#017ca5" }}>{row?.status}</span>
-                    )}
-                  </TableCell>
-                  <TableCell align="left">
-                    <>
-                      {row?.status === "Shipped" ? (
-                        <Button disabled onClick={() => handleDelete(row?._id)}>
-                          <i className="fas fa-trash-alt"></i>
-                        </Button>
-                      ) : (
-                        <Button onClick={() => handleDelete(row?._id)}>
-                          <i className="fas fa-trash-alt"></i>
-                        </Button>
-                      )}
-                    </>
-                  </TableCell>
+        {isSpinner ? (
+          <CircularProgress color="success" />
+        ) : (
+          <TableContainer component={Paper}>
+            <Table aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell>Product Model</TableCell>
+                  <TableCell align="left">Number</TableCell>
+                  <TableCell align="left">Address</TableCell>
+                  <TableCell align="left">Status</TableCell>
+                  <TableCell align="left">Action</TableCell>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+              </TableHead>
+              <TableBody>
+                {userData?.map((row) => (
+                  <TableRow
+                    key={row?._id}
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell
+                      component="th"
+                      scope="row"
+                      sx={{ fontWeight: "bold" }}
+                    >
+                      {row?.product_name}
+                    </TableCell>
+                    <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                      {row?.number}
+                    </TableCell>
+                    <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                      {row?.address}
+                    </TableCell>
+                    <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                      {row?.status === "Shipped" && (
+                        <span style={{ color: "green" }}>{row?.status}</span>
+                      )}
+                      {row?.status === "Cancel" && (
+                        <span style={{ color: "red" }}>{row?.status}</span>
+                      )}
+                      {row?.status === "Pending" && (
+                        <span style={{ color: "#017ca5" }}>{row?.status}</span>
+                      )}
+                    </TableCell>
+                    <TableCell align="left">
+                      <>
+                        {row?.status === "Shipped" ? (
+                          <Button
+                            disabled
+                            onClick={() => handleDelete(row?._id)}
+                          >
+                            <i className="fas fa-trash-alt"></i>
+                          </Button>
+                        ) : (
+                          <Button onClick={() => handleDelete(row?._id)}>
+                            <i
+                              className="fas fa-trash-alt"
+                              style={{ color: "red" }}
+                            ></i>
+                          </Button>
+                        )}
+                      </>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        )}
       </Container>
     </div>
   );

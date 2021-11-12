@@ -30,8 +30,8 @@ const Review = () => {
     }
     return (
       <div>
-        <Container sx={{ width: "50%", my: 10 }}>
-          <form onSubmit={handleReview}>
+        <Container sx={{  my: 10 }}>
+          <form onSubmit={handleReview} style={{textAlign: "left"}}>
             <TextField
               label="Experience"
               multiline

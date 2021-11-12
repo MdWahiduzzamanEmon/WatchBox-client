@@ -14,24 +14,31 @@ const AddProduct = () => {
         setInput(newValue);
     }
     const handlePost = (e) => {
-        e.preventDefault();
-        axios.post("https://polar-journey-34409.herokuapp.com/addProduct", input)
-            .then(res => {
-                if (res.data.insertedId) {
-                    swal({
-                     
-                      text: "Added successful!",
-                      icon: "success",
-                      
-                    })
-                setInput({})
-                } else {
-                    swal({
-                      text: "Something went wrong!",
-                      icon: "error",
-                    });
-                }
-            })
+      e.preventDefault();
+      if (Object.keys(input).length > 0) {
+          axios
+            .post("https://polar-journey-34409.herokuapp.com/addProduct", input)
+            .then((res) => {
+              if (res.data.insertedId) {
+                swal({
+                  text: "Added successful!",
+                  icon: "success",
+                });
+                setInput({});
+              } else {
+                swal({
+                  text: "Something went wrong!",
+                  icon: "error",
+                });
+              }
+            });
+      } else {
+        swal({
+          text: "Please add new product first And try again!",
+          icon: "error",
+        });
+      }
+      
     }
 
 
@@ -117,7 +124,7 @@ const AddProduct = () => {
               <Button
                 onClick={handlePost}
                 variant="outlined"
-                sx={{ backgroundColor: "#21a06a", color: "#000" }}
+                sx={{ backgroundColor: "#21a06a", color: "#000", mb:10}}
               >
                 Add Product
               </Button>

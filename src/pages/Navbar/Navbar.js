@@ -141,12 +141,13 @@ function Navbar() {
                   sx={{
                     backgroundColor: "#21a06a",
                     color: "#000",
+                    
                     mx: 1,
                     py: 1.5,
                   }}
                   onClick={signout}
                 >
-                  <i className="fas fa-sign-out-alt"></i>
+                  <i className="fas fa-sign-out-alt" style={{fontSize:"18px"}}></i>
                 </Button>
               )}
             </div>

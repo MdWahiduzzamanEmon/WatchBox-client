@@ -32,7 +32,7 @@ const ManageAllProduct = () => {
   const handleDelete = (id) => {
     swal({
       title: "Are you sure?",
-      text: "Once deleted, you will not be able to recover this order!",
+      text: "Once deleted, you will not be able to recover this product!",
       icon: "warning",
       buttons: true,
       dangerMode: true,
@@ -44,7 +44,7 @@ const ManageAllProduct = () => {
           )
           .then((res) => {
             if (res.data.deletedCount) {
-              swal("Order has been deleted!", {
+              swal("Product has been deleted!", {
                 icon: "success",
               });
               const restOrder = userData.filter(
@@ -54,7 +54,7 @@ const ManageAllProduct = () => {
             }
           });
       } else {
-        swal("Your Order is safe!");
+        swal("Your Product is safe!");
       }
     });
   };
@@ -119,7 +119,10 @@ const ManageAllProduct = () => {
                       <TableCell align="left">
                         <>
                           <Button onClick={() => handleDelete(row._id)}>
-                            <i className="fas fa-trash-alt"></i>
+                            <i
+                              className="fas fa-trash-alt"
+                              style={{ color: "red" }}
+                            ></i>
                           </Button>
                         </>
                       </TableCell>

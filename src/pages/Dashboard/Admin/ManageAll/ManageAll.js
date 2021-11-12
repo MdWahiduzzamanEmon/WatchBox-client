@@ -92,7 +92,7 @@ const ManageAll = () => {
                 <TableCell>Name</TableCell>
                 <TableCell align="left">Email</TableCell>
                 <TableCell align="left">Product Name</TableCell>
-                <TableCell align="left">Status</TableCell>
+                <TableCell align="center">Status</TableCell>
                 <TableCell align="center">Action</TableCell>
               </TableRow>
             </TableHead>
@@ -154,7 +154,10 @@ const ManageAll = () => {
                           </Select>
                         </FormControl>
                         <Button onClick={() => handleupdate(row._id)}>
-                          <i className="fas fa-edit"></i>
+                          <i
+                            className="fas fa-edit"
+                            style={{ color: "#21a06a" }}
+                          ></i>
                         </Button>
                       </Box>
                     </>
@@ -162,7 +165,10 @@ const ManageAll = () => {
                   <TableCell align="center">
                     <>
                       <Button onClick={() => handleDelete(row._id)}>
-                        <i className="fas fa-trash-alt"></i>
+                        <i
+                          className="fas fa-trash-alt"
+                          style={{ color: "red" }}
+                        ></i>
                       </Button>
                     </>
                   </TableCell>
