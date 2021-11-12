@@ -32,7 +32,7 @@ const Banner = () => {
               fontWeight: "bold",
             }}
           >
-            Find Your Watch
+            <span className="bannerHeaderText">Find Your Watch</span>
           </Typography>
           <Typography
             variant="body1"
@@ -44,11 +44,13 @@ const Banner = () => {
               margin: "0 auto",
             }}
           >
-            Level up your collection from an always-evolving assortment of the
-            world’s finest timepieces. Featuring classics and independent brands
-            like Rolex, Audemars Piguet, Patek Phillipe, Greubel Forsey, H.
-            Moser & Cie, and more. Our collection is always growing. Yours
-            should, too.
+            <span className="bannerHeader2Text">
+              Level up your collection from an always-evolving assortment of the
+              world’s finest timepieces. Featuring classics and independent
+              brands like Rolex, Audemars Piguet, Patek Phillipe, Greubel
+              Forsey, H. Moser & Cie, and more. Our collection is always
+              growing. Yours should, too.
+            </span>
           </Typography>
           <Button
             variant="outlined"

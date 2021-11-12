@@ -30,6 +30,16 @@ const GetReview = () => {
       }}
     >
       <Container sx={{ mt: 10 }}>
+        <Typography
+          variant="h3"
+          gutterBottom
+          component="div"
+          sx={{ fontWeight: "bold" }}
+        >
+          <span className="customerText">
+            <span style={{ color: "#21a06a" }}>10k+</span> Customer's Trust Us
+          </span>
+        </Typography>
         <Carousel
           Carousel
           style={{

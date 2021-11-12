@@ -9,44 +9,6 @@ const Footer = () => {
   return (
     <div style={{ backgroundColor: "#34495E", color: "#fff", mt: 3 }}>
       <Container>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-around",
-            alignItems: "center",
-            py: 3,
-            borderBottom: "2px solid #fff",
-          }}
-        >
-          <Box sx={{ borderRight: "2px solid #fff", px: 2 }}>
-            {" "}
-            <Typography
-              sx={{ fontWeight: "bold" }}
-              variant="body2"
-              gutterBottom
-            >
-              4043 N RAVENSWOOD AVE, SUITE 316,CHICAGO, IL 60613
-            </Typography>
-          </Box>
-          <Box sx={{ borderRight: "2px solid #fff", px: 2 }}>
-            <Typography
-              sx={{ fontWeight: "bold" }}
-              variant="body2"
-              gutterBottom
-            >
-              334.553.2234
-            </Typography>
-          </Box>
-          <Box>
-            <Typography
-              sx={{ fontWeight: "bold", mx: 1 }}
-              variant="body2"
-              gutterBottom
-            >
-              CONTACT
-            </Typography>
-          </Box>
-        </Box>
         <Grid
           container
           rowSpacing={1}
@@ -63,6 +25,13 @@ const Footer = () => {
               textAlign: "left",
             }}
           >
+            <Typography
+              sx={{ fontWeight: "bold" }}
+              variant="body2"
+              gutterBottom
+            >
+              4043 N RAVENSWOOD AVE, SUITE 316,CHICAGO, IL 60613
+            </Typography>
             <Button
               variant="outlined"
               sx={{ my: 5, backgroundColor: "#21a06a", color: "#fff" }}

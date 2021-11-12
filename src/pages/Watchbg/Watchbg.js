@@ -13,7 +13,7 @@ const Watchbg = () => {
         }}
       >
         <Box>
-          <img src={wtachBg} alt="" className="WatchBgImage" />
+          <img src={wtachBg} alt="" className="WatchBgImage bounce-1" />
         </Box>
         <Typography variant="h4" sx={{ my: 4 }}>
           -Featured <span style={{ color: "#21a06a" }}>Products-</span>

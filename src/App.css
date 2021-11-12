@@ -8,9 +8,37 @@
 .WatchBgImage{
   width: 20%;
 }
-
+ .bounce-1 {
+        animation-name: bounce-1;
+        animation-timing-function: linear;
+        animation-duration: 10s;
+        animation-iteration-count: infinite;
+        transform-origin: bottom ;
+    }
+    @keyframes bounce-1 {
+        0%   { transform: translateX(50px); -webkit-transform: translateX(50px); -moz-transform: translateX(50px); -ms-transform: translateX(50px); -o-transform: translateX(50px); }
+        50%  { transform: translateX(-50px); -webkit-transform: translateX(-50px); -moz-transform: translateX(-50px); -ms-transform: translateX(-50px); -o-transform: translateX(-50px); }
+        100% { transform: translateX(50px); -webkit-transform: translateX(50px); -moz-transform: translateX(50px); -ms-transform: translateX(50px); -o-transform: translateX(50px); }
+    }
+    .gridDirection{
+      display: flex;
+      justify-content:center;
+      align-items: center;
+    }
 /* color: "#21a06a" */
 /* //responsive  */
 @media only screen and (max-width:768px) {
+.customerText{
+  font-size:20px
+}
+.bannerHeaderText{
+  font-size:35px
+}
+.bannerHeader2Text{
+  font-size:13px
+}
+.WatchBgImage{
+  width: 80%;
+}
 
 }
