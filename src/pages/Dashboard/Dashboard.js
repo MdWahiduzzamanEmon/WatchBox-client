@@ -51,7 +51,7 @@ const Dashboard = () => {
             <Divider />
             <Box>
               <ul style={{ listStyleType: "none", textAlign: "left" }}>
-                <li style={{ margin: "10px 0px" }}>
+                {!isAdmin && <> <li style={{ margin: "10px 0px" }}>
                   <NavLink
                     to="/home"
                     style={(isActive) => ({
@@ -117,7 +117,7 @@ const Dashboard = () => {
                     Review
                   </NavLink>
                 </li>
-                <Divider />
+                <Divider /> </>}
                 <Divider />
                 {isAdmin && (
                   <>
