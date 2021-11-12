@@ -19,6 +19,7 @@ import ManageAllProduct from "./Admin/ManageAllProduct/ManageAllProduct";
 import MakeAdmin from "./Admin/MakeAdmin/MakeAdmin";
 import AddProduct from "./Admin/AddProduct/AddProduct";
 import PrivateAdminRoute from "../../Private/PrivateAdminRoute";
+import Footer from "../Footer/Footer";
 const Dashboard = () => {
     const { user, isAdmin, signout } = useAuth();
      let { path, url } = useRouteMatch();
@@ -26,7 +27,7 @@ const Dashboard = () => {
       <div>
         <Box sx={{ flexGrow: 1, minHeight: "800px" }}>
           <Grid container spacing={2}>
-            <Grid item xs={12} md={2} sx={{ border: "1px solid gray" }}>
+            <Grid item xs={12} md={2}>
               <Box
                 sx={{
                   display: "flex",
@@ -66,6 +67,10 @@ const Dashboard = () => {
                         fontWeight: "bold",
                       })}
                     >
+                      <i
+                        className="fas fa-house-user"
+                        style={{ margin: "0 5px", color: "#21a06a" }}
+                      ></i>
                       Home
                     </NavLink>
                   </li>
@@ -80,6 +85,10 @@ const Dashboard = () => {
                         fontWeight: "bold",
                       })}
                     >
+                      <i
+                        class="far fa-folder"
+                        style={{ margin: "0 5px", color: "#21a06a" }}
+                      ></i>
                       My Order
                     </NavLink>
                   </li>
@@ -92,6 +101,10 @@ const Dashboard = () => {
                         fontWeight: "bold",
                       })}
                     >
+                      <i
+                        class="fab fa-cc-mastercard"
+                        style={{ margin: "0 5px", color: "#21a06a" }}
+                      ></i>
                       Payment
                     </NavLink>
                   </li>
@@ -104,6 +117,10 @@ const Dashboard = () => {
                         fontWeight: "bold",
                       })}
                     >
+                      <i
+                        class="fas fa-comment-medical"
+                        style={{ margin: "0 5px", color: "#21a06a" }}
+                      ></i>
                       Review
                     </NavLink>
                   </li>
@@ -121,6 +138,10 @@ const Dashboard = () => {
                             fontWeight: "bold",
                           })}
                         >
+                          <i
+                            class="fas fa-tasks"
+                            style={{ margin: "0 5px", color: "#21a06a" }}
+                          ></i>
                           Manage All Order
                         </NavLink>
                       </li>
@@ -133,6 +154,10 @@ const Dashboard = () => {
                             fontWeight: "bold",
                           })}
                         >
+                          <i
+                            class="fab fa-product-hunt"
+                            style={{ margin: "0 5px", color: "#21a06a" }}
+                          ></i>
                           Manage All Product
                         </NavLink>
                       </li>
@@ -145,6 +170,10 @@ const Dashboard = () => {
                             fontWeight: "bold",
                           })}
                         >
+                          <i
+                            class="fas fa-users-cog"
+                            style={{ margin: "0 5px", color: "#21a06a" }}
+                          ></i>
                           Make Admin
                         </NavLink>
                       </li>
@@ -157,6 +186,10 @@ const Dashboard = () => {
                             fontWeight: "bold",
                           })}
                         >
+                          <i
+                            class="fas fa-plus-circle"
+                            style={{ margin: "0 5px", color: "#21a06a" }}
+                          ></i>
                           Add Product
                         </NavLink>
                       </li>
@@ -195,6 +228,7 @@ const Dashboard = () => {
             </Grid>
           </Grid>
         </Box>
+        <Footer />
       </div>
     );
 };

@@ -6,6 +6,8 @@ import WAtchAdvertise from '../../shared/WatchAdvertise/WAtchAdvertise';
 import Watchbg from '../../Watchbg/Watchbg';
 import Banner from '../Banner/Banner';
 import GetReview from '../GetReview/GetReview';
+import Advertise from '../../shared/Advertise/Advertise'
+import Footer from '../../Footer/Footer';
 const Home = () => {
     return (
       <div
@@ -16,7 +18,9 @@ const Home = () => {
             <Products />
             <WAtchAdvertise />
             <Series/>
-        <GetReview />
+            <GetReview />
+            <Advertise />
+            <Footer/>
       </div>
     );
 };

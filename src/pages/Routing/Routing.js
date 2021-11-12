@@ -8,7 +8,8 @@ import Register from "../Form/Register/Register";
 import SingleProductDetails from "../SingleProductDetails/SingleProductDetails";
 import Dashboard from '../Dashboard/Dashboard';
 import Error from "../Errror/Error";
-import Footer from "../Footer/Footer";
+import Faq from '../Faq/Faq'
+import Contact from "../Contact/Contact";
  const Routing = () => {
    return (
      <div>
@@ -23,6 +24,9 @@ import Footer from "../Footer/Footer";
            <Route path="/allProducts">
              <ExploreAllWatches />
            </Route>
+           <Route path="/faq">
+             <Faq />
+           </Route>
            <PrivateRoute path="/SingleProductDetails/:id">
              <SingleProductDetails />
            </PrivateRoute>
@@ -32,6 +36,9 @@ import Footer from "../Footer/Footer";
            <Route path="/signin">
              <Signin />
            </Route>
+           <Route path="/contact">
+             <Contact />
+           </Route>
            <Route path="/dashboard">
              <Dashboard />
            </Route>
@@ -39,7 +46,6 @@ import Footer from "../Footer/Footer";
              <Error/>
            </Route>
          </Switch>
-         <Footer/>
        </BrowserRouter>
      </div>
    );

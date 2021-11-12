@@ -127,14 +127,14 @@ const {user,signout}=useAuth();
                 variant="outlined"
                 sx={{ backgroundColor: "#21a06a", color: "#000", mx: 5 }}
                 onClick={() => {
-                  history.push("/register");
+                  history.push("/signin");
                 }}
               >
-                Register
+                Sign In
               </Button>:
               <Button
                 variant="outlined"
-                sx={{ backgroundColor: "#21a06a", color: "#000", mx: 1 }}
+                sx={{ backgroundColor: "#21a06a", color: "#000", mx: 1,py:1.5 }}
                 onClick={signout}
               >
                 <i className="fas fa-sign-out-alt"></i>

@@ -8,6 +8,9 @@ const PrivateAdminRoute = ({ children, ...rest }) => {
   if (isLoading) {
     return <CircularProgress color="success" sx={{ my: 40 }} />;
   }
+  if (!isAdmin) {
+    return <CircularProgress color="success" sx={{ my: 40 }} />;
+  }
   return (
     <div>
       <Route
@@ -18,7 +21,7 @@ const PrivateAdminRoute = ({ children, ...rest }) => {
           ) : (
             <Redirect
               to={{
-                pathname: "/dashboard",
+                pathname: "/",
                 state: { from: location },
               }}
             />

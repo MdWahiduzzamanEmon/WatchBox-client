@@ -54,33 +54,35 @@ const {user}=useAuth();
 
     return (
       <div>
-        <Container sx={{ mt: 10 }}>
+        <Container sx={{ my: 10 }}>
           <TableContainer component={Paper}>
             <Table aria-label="simple table">
               <TableHead>
                 <TableRow>
                   <TableCell>Product Model</TableCell>
-                  <TableCell align="right">Number</TableCell>
-                  <TableCell align="right">Address</TableCell>
-                  <TableCell align="right">Status</TableCell>
-                  <TableCell align="right">Action</TableCell>
+                  <TableCell align="left">Number</TableCell>
+                  <TableCell align="left">Address</TableCell>
+                  <TableCell align="left">Status</TableCell>
+                  <TableCell align="left">Action</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {userData.map((row) => (
+                {userData?.map((row) => (
                   <TableRow
-                    key={row._id}
+                    key={row?._id}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
-                    <TableCell component="th" scope="row">
-                      {row.product_name}
+                    <TableCell component="th" scope="row" sx={{fontWeight: "bold"}}>
+                      {row?.product_name}
                     </TableCell>
-                    <TableCell align="right">{row.number}</TableCell>
-                    <TableCell align="right">{row.address}</TableCell>
-                    <TableCell align="right">{row.status}</TableCell>
-                    <TableCell align="right">
+                    <TableCell align="left" sx={{fontWeight: "bold"}}>{row?.number}</TableCell>
+                    <TableCell align="left" sx={{fontWeight: "bold"}}>{row?.address}</TableCell>
+                    <TableCell align="left" sx={{fontWeight: "bold"}}>
+                      { row?.status}
+                    </TableCell>
+                    <TableCell align="left">
                       <>
-                        <Button onClick={()=>handleDelete(row._id)}>
+                        <Button onClick={() => handleDelete(row?._id)}>
                           <i className="fas fa-trash-alt"></i>
                         </Button>
                       </>

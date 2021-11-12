@@ -77,7 +77,7 @@ const ManageAll = () => {
 
   return (
     <div>
-      <Container sx={{ mt: 10 }}>
+      <Container sx={{ my: 10 }}>
         <TableContainer component={Paper}>
           <Table aria-label="simple table">
             <TableHead>

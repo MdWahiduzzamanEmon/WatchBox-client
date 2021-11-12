@@ -72,7 +72,7 @@ const ManageAllProduct = () => {
             >
               Total Product : {userData.length}
             </Typography>
-            <TableContainer component={Paper}>
+            <TableContainer component={Paper} sx={{mb:10}}>
               <Table aria-label="simple table">
                 <TableHead>
                   <TableRow>

@@ -26,7 +26,7 @@ const Footer = () => {
             }}
           >
             <Typography
-              sx={{ fontWeight: "bold" }}
+              sx={{ fontWeight: "bold",mt: 2 }}
               variant="body2"
               gutterBottom
             >

@@ -69,7 +69,7 @@ const { user, signout } = useAuth();
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
               <NavLink
-                to="/about"
+                to="/faq"
                 style={(isActive) => ({
                   color: isActive ? "#21a06a" : "#000",
                   textDecoration: "none",
@@ -121,10 +121,10 @@ const { user, signout } = useAuth();
                 variant="outlined"
                 sx={{ backgroundColor: "#21a06a", color: "#000", mx: 5 }}
                 onClick={() => {
-                  history.push("/register");
+                  history.push("/signin");
                 }}
               >
-                Register
+                Sign In
               </Button>:
               <Button
                 variant="outlined"

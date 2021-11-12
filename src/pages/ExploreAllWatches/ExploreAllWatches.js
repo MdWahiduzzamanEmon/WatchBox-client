@@ -15,6 +15,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import Footer from "../Footer/Footer";
 
 const ExploreAllWatches = () => {
     const [products, setProducts] = useState([]);
@@ -75,10 +76,10 @@ const ExploreAllWatches = () => {
                   onChange={handleChange}
                   label="casual"
                 >
-                  <MenuItem value={"smart"}>Smart Watch</MenuItem>
-                  <MenuItem value={"leader"}>Leather</MenuItem>
-                  <MenuItem value={"casual"}>Casual</MenuItem>
-                  <MenuItem value={"steel"}>Steel</MenuItem>
+                  <MenuItem value={"smart"||""}>Smart Watch</MenuItem>
+                  <MenuItem value={"leader"||""}>Leather</MenuItem>
+                  <MenuItem value={"casual"||""}>Casual</MenuItem>
+                  <MenuItem value={"steel"||""}>Steel</MenuItem>
                 </Select>
               </FormControl>
             </Box>
@@ -104,6 +105,7 @@ const ExploreAllWatches = () => {
             )}
           </Container>
         </Box>
+        <Footer/>
       </>
     );
 };

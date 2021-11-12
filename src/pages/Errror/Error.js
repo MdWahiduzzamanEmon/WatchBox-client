@@ -16,7 +16,7 @@ const Error = () => {
       >
         <img src={error} alt="" style={{ width: "60%" }} />
         <Button
-          sx={{ backgroundColor: "#21a06a", color: "#000" }}
+          sx={{ backgroundColor: "#21a06a", color: "#000" ,mb:10}}
           variant="outlined"
           onClick={() => {
             history.push("/");

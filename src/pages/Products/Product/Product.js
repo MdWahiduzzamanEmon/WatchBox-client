@@ -12,7 +12,7 @@ const Product = ({ product }) => {
             // display: "flex",
             mx: "auto",
             width: 300,
-            height: 423,
+            height: 450,
             borderBottom: "3px solid #21a06a",
           }}
         >

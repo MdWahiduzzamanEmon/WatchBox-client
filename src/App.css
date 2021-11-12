@@ -25,6 +25,11 @@
       justify-content:center;
       align-items: center;
     }
+    .adImage{
+width: 100%;
+height:500px;
+object-fit:cover;
+    }
 /* color: "#21a06a" */
 /* //responsive  */
 @media only screen and (max-width:768px) {
@@ -40,5 +45,7 @@
 .WatchBgImage{
   width: 80%;
 }
-
+.adImage{
+      height:100%
+    }
 }
