@@ -1,6 +1,5 @@
 import { Grid, Paper, Box, Typography, Rating, Button } from '@mui/material';
 import StarIcon from "@mui/icons-material/Star";
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -13,11 +12,11 @@ const Product = ({ product }) => {
             // display: "flex",
             mx: "auto",
             width: 300,
-            height: 420,
+            height: 423,
             borderBottom: "3px solid #21a06a",
           }}
         >
-          <Paper elevation={0}>
+          <Paper elevation={0} sx={{p:2}}>
             <Box>
               <img
                 src={image}

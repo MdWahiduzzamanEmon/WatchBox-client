@@ -7,6 +7,8 @@ import Register from "../Form/Register/Register";
  import Home from "../Home/Home/Home";
 import SingleProductDetails from "../SingleProductDetails/SingleProductDetails";
 import Dashboard from '../Dashboard/Dashboard';
+import Error from "../Errror/Error";
+import Footer from "../Footer/Footer";
  const Routing = () => {
    return (
      <div>
@@ -33,7 +35,11 @@ import Dashboard from '../Dashboard/Dashboard';
            <Route path="/dashboard">
              <Dashboard />
            </Route>
+           <Route path="*">
+             <Error/>
+           </Route>
          </Switch>
+         <Footer/>
        </BrowserRouter>
      </div>
    );

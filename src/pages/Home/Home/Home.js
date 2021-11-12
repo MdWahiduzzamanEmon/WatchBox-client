@@ -4,16 +4,16 @@ import Products from '../../Products/Products';
 import Watchbg from '../../Watchbg/Watchbg';
 import Banner from '../Banner/Banner';
 import GetReview from '../GetReview/GetReview';
-
 const Home = () => {
     return (
-        <div>
-            <Navbar />
-            <Banner />
-            <Watchbg />
-            <Products />
-            <GetReview/>
-        </div>
+      <div
+      >
+        <Navbar />
+        <Banner />
+        <Watchbg />
+        <Products />
+        <GetReview />
+      </div>
     );
 };
 

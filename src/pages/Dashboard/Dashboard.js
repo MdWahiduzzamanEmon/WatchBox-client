@@ -24,7 +24,7 @@ const Dashboard = () => {
      let { path, url } = useRouteMatch();
     return (
       <div>
-        <Box sx={{ flexGrow: 1, height: "800px" }}>
+        <Box sx={{ flexGrow: 1, minHeight: "800px" }}>
           <Grid container spacing={2}>
             <Grid item xs={12} md={2} sx={{ border: "1px solid gray" }}>
               <Box
@@ -32,14 +32,14 @@ const Dashboard = () => {
                   display: "flex",
                   // justifyContent: "space-between",
                   alignItems: "center",
-                  flexDirection:"column"
+                  flexDirection: "column",
                 }}
               >
                 <Typography
                   variant="h5"
                   gutterBottom
                   component="div"
-                  sx={{ fontWeight: "bold", textAlign: "left", }}
+                  sx={{ fontWeight: "bold", textAlign: "left" }}
                 >
                   Dashboard
                   <Typography variant="caption" display="block" gutterBottom>
