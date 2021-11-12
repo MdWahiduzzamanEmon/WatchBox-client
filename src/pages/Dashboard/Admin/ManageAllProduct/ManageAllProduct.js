@@ -6,27 +6,27 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import CircularProgress from '@mui/material/CircularProgress';
+import CircularProgress from "@mui/material/CircularProgress";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import swal from "sweetalert";
 
 const ManageAllProduct = () => {
-    const [userData, setUserData] = useState([]);
+  const [userData, setUserData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-    const [isLoading, setIsLoading ] = useState(true)
-    useEffect(() => {
-      setTimeout(() => {
-    setIsLoading(true)
-        fetch("https://polar-journey-34409.herokuapp.com/allProducts")
-          .then((res) => res.json())
-          .then((data) => {
-            setUserData(data);
-            setIsLoading(false);
-          });
-      }, 1000);
-    }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(true);
+      fetch("https://polar-journey-34409.herokuapp.com/allProducts")
+        .then((res) => res.json())
+        .then((data) => {
+          setUserData(data);
+          setIsLoading(false);
+        });
+    }, 1000);
+  }, []);
 
   //delete
   const handleDelete = (id) => {
@@ -39,7 +39,9 @@ const ManageAllProduct = () => {
     }).then((willDelete) => {
       if (willDelete) {
         axios
-          .delete(`https://polar-journey-34409.herokuapp.com/deleteProducts/${id}`)
+          .delete(
+            `https://polar-journey-34409.herokuapp.com/deleteProducts/${id}`
+          )
           .then((res) => {
             if (res.data.deletedCount) {
               swal("Order has been deleted!", {
@@ -72,10 +74,11 @@ const ManageAllProduct = () => {
             >
               Total Product : {userData.length}
             </Typography>
-            <TableContainer component={Paper} sx={{mb:10}}>
+            <TableContainer component={Paper} sx={{ mb: 10 }}>
               <Table aria-label="simple table">
                 <TableHead>
                   <TableRow>
+                    <TableCell>No:</TableCell>
                     <TableCell>Product Model</TableCell>
                     <TableCell align="left">Price</TableCell>
                     <TableCell align="left">Details</TableCell>
@@ -84,19 +87,35 @@ const ManageAllProduct = () => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {userData?.map((row) => (
+                  {userData?.map((row, index) => (
                     <TableRow
                       key={row._id}
                       sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                     >
-                      <TableCell component="th" scope="row">
+                      <TableCell
+                        component="th"
+                        scope="row"
+                        sx={{ fontWeight: "bold" }}
+                      >
+                        {index + 1}
+                      </TableCell>
+                      <TableCell
+                        component="th"
+                        scope="row"
+                        sx={{ fontWeight: "bold" }}
+                      >
                         {row.name}
                       </TableCell>
-                      <TableCell align="left">${row.price}</TableCell>
-                      <TableCell align="left">
+
+                      <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                        ${row.price}
+                      </TableCell>
+                      <TableCell align="left" sx={{ fontWeight: "bold" }}>
                         {row.short_description}
                       </TableCell>
-                      <TableCell align="left">{row.category}</TableCell>
+                      <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                        {row.category}
+                      </TableCell>
                       <TableCell align="left">
                         <>
                           <Button onClick={() => handleDelete(row._id)}>

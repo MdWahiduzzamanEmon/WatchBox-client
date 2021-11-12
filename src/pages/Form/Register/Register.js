@@ -15,7 +15,6 @@ const Register = () => {
   const uri = location?.state?.from || "/"
   const handleRegisterSubmit = () => {
       
-      console.log(formValue);
         if (formValue.password !== formValue.password2) {
              return swal({
                text: "Password not matched!",

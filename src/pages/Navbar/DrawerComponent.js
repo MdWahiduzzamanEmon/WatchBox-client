@@ -12,10 +12,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { NavLink, useHistory } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 
-
 function DrawerComponent() {
   const history = useHistory();
-const { user, signout } = useAuth();
+  const { user, signout } = useAuth();
   const [openDrawer, setOpenDrawer] = useState(false);
   return (
     <>
@@ -81,21 +80,23 @@ const { user, signout } = useAuth();
               </NavLink>
             </ListItemText>
           </ListItem>
-          {user.uid&&<ListItem onClick={() => setOpenDrawer(false)}>
-            <ListItemText>
-              <NavLink
-                to="/dashboard"
-                style={(isActive) => ({
-                  color: isActive ? "#21a06a" : "#000",
-                  textDecoration: "none",
-                  fontWeight: "bold",
-                  margin: "0 10px",
-                })}
-              >
-                Dashboard
-              </NavLink>
-            </ListItemText>
-          </ListItem>}
+          {user.uid && (
+            <ListItem onClick={() => setOpenDrawer(false)}>
+              <ListItemText>
+                <NavLink
+                  to="/dashboard"
+                  style={(isActive) => ({
+                    color: isActive ? "#21a06a" : "#000",
+                    textDecoration: "none",
+                    fontWeight: "bold",
+                    margin: "0 10px",
+                  })}
+                >
+                  Dashboard
+                </NavLink>
+              </ListItemText>
+            </ListItem>
+          )}
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
               {user?.uid && (
@@ -117,22 +118,25 @@ const { user, signout } = useAuth();
                   sx={{ display: "inline-flex" }}
                 />
               )}
-              {!user.uid ?<Button
-                variant="outlined"
-                sx={{ backgroundColor: "#21a06a", color: "#000", mx: 5 }}
-                onClick={() => {
-                  history.push("/signin");
-                }}
-              >
-                Sign In
-              </Button>:
-              <Button
-                variant="outlined"
-                sx={{ backgroundColor: "#21a06a", color: "#000", mx: 1 }}
-                onClick={signout}
-              >
-                <i className="fas fa-sign-out-alt"></i>
-              </Button>}
+              {!user.uid ? (
+                <Button
+                  variant="outlined"
+                  sx={{ backgroundColor: "#21a06a", color: "#000", mx: 5 }}
+                  onClick={() => {
+                    history.push("/signin");
+                  }}
+                >
+                  Sign In
+                </Button>
+              ) : (
+                <Button
+                  variant="outlined"
+                  sx={{ backgroundColor: "#21a06a", color: "#000", mx: 1 }}
+                  onClick={signout}
+                >
+                  <i className="fas fa-sign-out-alt"></i>
+                </Button>
+              )}
             </ListItemText>
           </ListItem>
         </List>

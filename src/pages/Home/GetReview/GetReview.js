@@ -12,7 +12,6 @@ import {
 import { Box } from "@mui/system";
 const GetReview = () => {
   const [reviews, setReview] = useState([]);
-  console.log(reviews);
   useEffect(() => {
     axios
       .get("https://polar-journey-34409.herokuapp.com/review")

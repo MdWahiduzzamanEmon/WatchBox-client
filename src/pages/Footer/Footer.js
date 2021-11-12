@@ -2,8 +2,8 @@ import { Container, Box, Typography, Grid, Button } from "@mui/material";
 import React from "react";
 import { useHistory } from "react-router";
 import { NavLink } from "react-router-dom";
-import payment from '../../images/paymernt.png'
-import playstore from '../../images/playstore.png'
+import payment from "../../images/paymernt.png";
+import playstore from "../../images/playstore.png";
 const Footer = () => {
   const history = useHistory();
   return (
@@ -26,7 +26,7 @@ const Footer = () => {
             }}
           >
             <Typography
-              sx={{ fontWeight: "bold",mt: 2 }}
+              sx={{ fontWeight: "bold", mt: 2 }}
               variant="body2"
               gutterBottom
             >

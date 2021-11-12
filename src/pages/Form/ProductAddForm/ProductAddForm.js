@@ -1,9 +1,8 @@
-import { Button, TextField } from '@mui/material';
-import axios from 'axios';
-import React, { useState } from 'react';
-import useAuth from '../../../Hooks/useAuth'
+import { Button, TextField } from "@mui/material";
+import axios from "axios";
+import React, { useState } from "react";
+import useAuth from "../../../Hooks/useAuth";
 import swal from "sweetalert";
-
 
 const ProductAddForm = ({ singleProduct }) => {
   const { user } = useAuth();
@@ -12,35 +11,37 @@ const ProductAddForm = ({ singleProduct }) => {
   const handleChange = (e) => {
     const field = e.target.name;
     const value = e.target.value;
-      const newValue = { ...fieldValue };
-      newValue[field]=value
+    const newValue = { ...fieldValue };
+    newValue[field] = value;
     setFieldVAlue(newValue);
   };
-    const onSubmit = (e) => {
-        const dataVAlue = {
-          ...fieldValue,
-          product_name: singleProduct.name,
-          price: singleProduct.price,
-          number: fieldValue.number,
-          email: user?.email,
-          status:"Pending"
-      };
-      
-      axios
-        .post("https://polar-journey-34409.herokuapp.com/buyingdetails/", dataVAlue)
-        .then((res) => {
-          if (res.data.insertedId) {
-            swal({
-              text: "Purchase Successful",
-              icon: "success",
-            });
-            e.target.reset();
-            setFieldVAlue({});
-          }
-        });
+  const onSubmit = (e) => {
+    const dataVAlue = {
+      ...fieldValue,
+      product_name: singleProduct.name,
+      price: singleProduct.price,
+      number: fieldValue.number,
+      email: user?.email,
+      status: "Pending",
+    };
+
+    axios
+      .post(
+        "https://polar-journey-34409.herokuapp.com/buyingdetails/",
+        dataVAlue
+      )
+      .then((res) => {
+        if (res.data.insertedId) {
+          swal({
+            text: "Purchase Successful",
+            icon: "success",
+          });
+          e.target.reset();
+          setFieldVAlue({});
+        }
+      });
 
     e.preventDefault();
-
   };
 
   return (

@@ -5,17 +5,18 @@ import { Link, useHistory, useLocation } from "react-router-dom";
 import useAuth from '../../../../Hooks/useAuth'
 
 const Signin = () => {
+  //redirect 
 const history = useHistory();
 const location = useLocation();
-const uri = location?.state?.from || "/";
-  const { handleFormFiled, setFormValue, handleSignIn, error, formValue } =
-    useAuth();
+  const uri = location?.state?.from || "/";
   
+  const { handleFormFiled, setFormValue, handleSignIn, error } =
+    useAuth();
+  //submit button control
   const handleSignSubmit = (e) => {
       e.preventDefault();
       handleSignIn(history,uri);
       setFormValue({});
-      console.log(formValue);
 
     }
     

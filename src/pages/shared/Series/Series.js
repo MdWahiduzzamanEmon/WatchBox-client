@@ -10,7 +10,7 @@ const Series = () => {
           container
           rowSpacing={1}
           columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-                  className="gridDirection"
+          className="gridDirection"
         >
           <Grid item xs={12} md={6}>
             <img src={smartWatch2} alt="" style={{ width: "50%" }} />
@@ -36,7 +36,6 @@ const Series = () => {
               injected humour, or randomised words which don't look even
               slightly believable.
             </Typography>
-            
           </Grid>
         </Grid>
       </Container>

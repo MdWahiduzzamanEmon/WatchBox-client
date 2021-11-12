@@ -1,7 +1,6 @@
-
-import './App.css';
-import Routing from './pages/Routing/Routing';
-import AuthProvider from './Context/AuthProvider';
+import "./App.css";
+import Routing from "./pages/Routing/Routing";
+import AuthProvider from "./Context/AuthProvider";
 
 function App() {
   return (

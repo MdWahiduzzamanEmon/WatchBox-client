@@ -11,10 +11,10 @@ import {
 import { Link, NavLink, useHistory } from "react-router-dom";
 import DrawerComponent from "./DrawerComponent";
 import { Box } from "@mui/system";
-import useAuth from '../../Hooks/useAuth'
+import useAuth from "../../Hooks/useAuth";
 
 function Navbar() {
-const {user,signout}=useAuth();
+  const { user, signout } = useAuth();
   const history = useHistory();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -93,17 +93,19 @@ const {user,signout}=useAuth();
               >
                 FAQ
               </NavLink>
-              {user.uid&&<NavLink
-                to="/dashboard"
-                style={(isActive) => ({
-                  color: isActive ? "#21a06a" : "#000",
-                  textDecoration: "none",
-                  fontWeight: "bold",
-                  margin: "0 10px",
-                })}
-              >
-                Dashboard
-              </NavLink>}
+              {user.uid && (
+                <NavLink
+                  to="/dashboard"
+                  style={(isActive) => ({
+                    color: isActive ? "#21a06a" : "#000",
+                    textDecoration: "none",
+                    fontWeight: "bold",
+                    margin: "0 10px",
+                  })}
+                >
+                  Dashboard
+                </NavLink>
+              )}
               {user?.uid && (
                 <h2
                   style={{
@@ -123,22 +125,30 @@ const {user,signout}=useAuth();
                   sx={{ display: "inline-flex" }}
                 />
               )}
-              {!user?.uid?<Button
-                variant="outlined"
-                sx={{ backgroundColor: "#21a06a", color: "#000", mx: 5 }}
-                onClick={() => {
-                  history.push("/signin");
-                }}
-              >
-                Sign In
-              </Button>:
-              <Button
-                variant="outlined"
-                sx={{ backgroundColor: "#21a06a", color: "#000", mx: 1,py:1.5 }}
-                onClick={signout}
-              >
-                <i className="fas fa-sign-out-alt"></i>
-              </Button>}
+              {!user?.uid ? (
+                <Button
+                  variant="outlined"
+                  sx={{ backgroundColor: "#21a06a", color: "#000", mx: 5 }}
+                  onClick={() => {
+                    history.push("/signin");
+                  }}
+                >
+                  Sign In
+                </Button>
+              ) : (
+                <Button
+                  variant="outlined"
+                  sx={{
+                    backgroundColor: "#21a06a",
+                    color: "#000",
+                    mx: 1,
+                    py: 1.5,
+                  }}
+                  onClick={signout}
+                >
+                  <i className="fas fa-sign-out-alt"></i>
+                </Button>
+              )}
             </div>
           )}
         </Box>

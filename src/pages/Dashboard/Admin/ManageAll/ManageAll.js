@@ -16,13 +16,15 @@ import swal from "sweetalert";
 import { Box } from "@mui/system";
 
 const ManageAll = () => {
-    const [userAllData, setUserAllData] = useState([]);
-    const [getUpdateValue, setGetUpdateValue] = useState('')
-    const [modified,setModified]=useState(false)
+  const [userAllData, setUserAllData] = useState([]);
+  const [getUpdateValue, setGetUpdateValue] = useState("");
+  const [modified, setModified] = useState(false);
   useEffect(() => {
-    axios.get("https://polar-journey-34409.herokuapp.com/buyingAlldetails").then((res) => {
-      setUserAllData(res.data);
-    });
+    axios
+      .get("https://polar-journey-34409.herokuapp.com/buyingAlldetails")
+      .then((res) => {
+        setUserAllData(res.data);
+      });
   }, [modified]);
 
   //delete
@@ -36,7 +38,9 @@ const ManageAll = () => {
     }).then((willDelete) => {
       if (willDelete) {
         axios
-          .delete(`https://polar-journey-34409.herokuapp.com/buyingdetails/${id}`)
+          .delete(
+            `https://polar-journey-34409.herokuapp.com/buyingdetails/${id}`
+          )
           .then((res) => {
             if (res.data.deletedCount) {
               swal("User Order has been deleted!", {
@@ -52,28 +56,31 @@ const ManageAll = () => {
         swal("Users Order is safe!");
       }
     });
+  };
+
+  //status update
+
+  const handleChange = (event) => {
+    const newValue = event.target.value;
+    const datas = {
+      ...userAllData,
+      status: newValue,
     };
-    
-//status update 
-    
-    const handleChange = (event) => {
-        const newValue=event.target.value
-        const datas = {
-          ...userAllData,
-          status: newValue,
-        };
-       setGetUpdateValue(datas);
-    }
-    const handleupdate = (id) => {
-         axios
-           .put(`https://polar-journey-34409.herokuapp.com/buyingdetails/${id}`, getUpdateValue)
-           .then((res) => {
-             if (res.data.modifiedCount) {
-                 swal("Satus Updated Successful!");
-                 setModified(!modified);
-             }
-           });
-    }
+    setGetUpdateValue(datas);
+  };
+  const handleupdate = (id) => {
+    axios
+      .put(
+        `https://polar-journey-34409.herokuapp.com/buyingdetails/${id}`,
+        getUpdateValue
+      )
+      .then((res) => {
+        if (res.data.modifiedCount) {
+          swal("Satus Updated Successful!");
+          setModified(!modified);
+        }
+      });
+  };
 
   return (
     <div>
@@ -95,14 +102,24 @@ const ManageAll = () => {
                   key={row._id}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
-                  <TableCell component="th" scope="row">
+                  <TableCell
+                    component="th"
+                    scope="row"
+                    sx={{ fontWeight: "bold" }}
+                  >
                     {row.name}
                   </TableCell>
-                  <TableCell align="left">{row.email}</TableCell>
-                  <TableCell align="left">{row.product_name}</TableCell>
-                  <TableCell align="left">
+                  <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                    {row.email}
+                  </TableCell>
+                  <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                    {row.product_name}
+                  </TableCell>
+                  <TableCell align="left" sx={{ fontWeight: "bold" }}>
                     <>
-                              <Box style={ {display:"flex",justifyContent:"center"}}>
+                      <Box
+                        style={{ display: "flex", justifyContent: "center" }}
+                      >
                         <FormControl variant="standard" sx={{ minWidth: 120 }}>
                           <InputLabel id="demo-simple-select-standard-label">
                             Change Order Status
@@ -114,10 +131,26 @@ const ManageAll = () => {
                             value={row.status}
                             label=""
                             onChange={handleChange}
+                            sx={{ fontWeight: "bold" }}
                           >
-                            <MenuItem value={"Pending"}>Pending</MenuItem>
-                            <MenuItem value={"Shipped "}>Shipped </MenuItem>
-                            <MenuItem value={"Cancel"}>Cancel</MenuItem>
+                            <MenuItem
+                              value={"Pending"}
+                              sx={{ fontWeight: "bold" }}
+                            >
+                              Pending
+                            </MenuItem>
+                            <MenuItem
+                              value={"Shipped"}
+                              sx={{ fontWeight: "bold" }}
+                            >
+                              Shipped
+                            </MenuItem>
+                            <MenuItem
+                              value={"Cancel"}
+                              sx={{ fontWeight: "bold" }}
+                            >
+                              Cancel
+                            </MenuItem>
                           </Select>
                         </FormControl>
                         <Button onClick={() => handleupdate(row._id)}>
