@@ -80,7 +80,7 @@ function DrawerComponent() {
               </NavLink>
             </ListItemText>
           </ListItem>
-          {user.uid && (
+
             <ListItem onClick={() => setOpenDrawer(false)}>
               <ListItemText>
                 <NavLink
@@ -96,7 +96,7 @@ function DrawerComponent() {
                 </NavLink>
               </ListItemText>
             </ListItem>
-          )}
+
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
               {user?.uid && (
