@@ -91,6 +91,7 @@ const ManageAll = () => {
               <TableRow>
                 <TableCell>Name</TableCell>
                 <TableCell align="left">Email</TableCell>
+                <TableCell align="left">Address</TableCell>
                 <TableCell align="left">Product Name</TableCell>
                 <TableCell align="center">Status</TableCell>
                 <TableCell align="center">Action</TableCell>
@@ -111,6 +112,9 @@ const ManageAll = () => {
                   </TableCell>
                   <TableCell align="left" sx={{ fontWeight: "bold" }}>
                     {row.email}
+                  </TableCell>
+                  <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                    {row.address}
                   </TableCell>
                   <TableCell align="left" sx={{ fontWeight: "bold" }}>
                     {row.product_name}
