@@ -39,6 +39,7 @@ const Review = () => {
               margin="normal"
               fullWidth
               onChange={handleField}
+              required
             />
             <Typography sx={{ textAlign: "left" }} component="legend">
               Gives Rating (out of 5)

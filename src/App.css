@@ -59,4 +59,7 @@ object-fit:cover;
     .adminTextField{
   width: 100%;
 }
+.reviewText{
+  font-size:15px
+}
 }

@@ -49,15 +49,12 @@ const GetReview = () => {
             <Card
               sx={{
                 minWidth: 275,
-
-                // width: "100%",
-                // height: "700px",
               }}
               key={item._id}
             >
               <CardContent>
                 <Typography variant="h5" component="div">
-                  {item.comment}
+                  <span className="reviewText"> {item.comment}</span>
                 </Typography>
                 <Typography sx={{ my: 1.5 }} color="text.secondary">
                   <Rating
