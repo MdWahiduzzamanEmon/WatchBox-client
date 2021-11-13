@@ -92,6 +92,7 @@ const ManageAll = () => {
                 <TableCell>Name</TableCell>
                 <TableCell align="left">Email</TableCell>
                 <TableCell align="left">Address</TableCell>
+                <TableCell align="left">Price</TableCell>
                 <TableCell align="left">Product Name</TableCell>
                 <TableCell align="center">Status</TableCell>
                 <TableCell align="center">Action</TableCell>
@@ -117,6 +118,9 @@ const ManageAll = () => {
                     {row.address}
                   </TableCell>
                   <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                    {row.price}
+                  </TableCell>
+                  <TableCell align="left" sx={{ fontWeight: "bold" }}>
                     {row.product_name}
                   </TableCell>
                   <TableCell align="left" sx={{ fontWeight: "bold" }}>
@@ -131,9 +135,7 @@ const ManageAll = () => {
                           <Select
                             labelId="demo-simple-select-standard-label"
                             id="demo-simple-select-standard"
-                            //   DefaultValue={row.status}
                             value={row.status}
-                            label=""
                             onChange={handleChange}
                             sx={{ fontWeight: "bold" }}
                           >
