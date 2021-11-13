@@ -118,7 +118,7 @@ const ManageAll = () => {
                     {row.address}
                   </TableCell>
                   <TableCell align="left" sx={{ fontWeight: "bold" }}>
-                    {row.price}
+                    ${row.price}
                   </TableCell>
                   <TableCell align="left" sx={{ fontWeight: "bold" }}>
                     {row.product_name}
