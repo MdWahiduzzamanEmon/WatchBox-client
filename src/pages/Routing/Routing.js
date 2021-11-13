@@ -39,9 +39,9 @@ const Routing = () => {
           <Route path="/contact">
             <Contact />
           </Route>
-          <Route path="/dashboard">
+          <PrivateRoute path="/dashboard">
             <Dashboard />
-          </Route>
+          </PrivateRoute>
           <Route path="*">
             <Error />
           </Route>

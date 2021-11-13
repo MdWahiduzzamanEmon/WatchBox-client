@@ -93,7 +93,7 @@ function Navbar() {
               >
                 FAQ
               </NavLink>
-              {user.uid && (
+
                 <NavLink
                   to="/dashboard"
                   style={(isActive) => ({
@@ -105,7 +105,7 @@ function Navbar() {
                 >
                   Dashboard
                 </NavLink>
-              )}
+ 
               {user?.uid && (
                 <h2
                   style={{

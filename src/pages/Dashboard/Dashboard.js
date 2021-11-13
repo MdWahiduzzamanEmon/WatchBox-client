@@ -51,7 +51,7 @@ const Dashboard = () => {
             <Divider />
             <Box>
               <ul style={{ listStyleType: "none", textAlign: "left" }}>
-                {!isAdmin && <> <li style={{ margin: "10px 0px" }}>
+                <li style={{ margin: "10px 0px" }}>
                   <NavLink
                     to="/home"
                     style={(isActive) => ({
@@ -69,55 +69,60 @@ const Dashboard = () => {
                 </li>
                 <Divider />
                 <Divider />
-                <li style={{ margin: "10px 0px" }}>
-                  <NavLink
-                    to={`${url}`}
-                    style={(isActive) => ({
-                      color: isActive ? "#21a06a" : "#000",
-                      textDecoration: "none",
-                      fontWeight: "bold",
-                    })}
-                  >
-                    <i
-                      className="far fa-folder"
-                      style={{ margin: "0 5px", color: "#21a06a" }}
-                    ></i>
-                    My Order
-                  </NavLink>
-                </li>
-                <li style={{ margin: "10px 0px" }}>
-                  <NavLink
-                    to={`${url}/payment`}
-                    style={(isActive) => ({
-                      color: isActive ? "#21a06a" : "#000",
-                      textDecoration: "none",
-                      fontWeight: "bold",
-                    })}
-                  >
-                    <i
-                      className="fab fa-cc-mastercard"
-                      style={{ margin: "0 5px", color: "#21a06a" }}
-                    ></i>
-                    Payment
-                  </NavLink>
-                </li>
-                <li style={{ margin: "10px 0px" }}>
-                  <NavLink
-                    to={`${url}/review`}
-                    style={(isActive) => ({
-                      color: isActive ? "#21a06a" : "#000",
-                      textDecoration: "none",
-                      fontWeight: "bold",
-                    })}
-                  >
-                    <i
-                      className="fas fa-comment-medical"
-                      style={{ margin: "0 5px", color: "#21a06a" }}
-                    ></i>
-                    Review
-                  </NavLink>
-                </li>
-                <Divider /> </>}
+                {!isAdmin && (
+                  <>
+                    {" "}
+                    <li style={{ margin: "10px 0px" }}>
+                      <NavLink
+                        to={`${url}`}
+                        style={(isActive) => ({
+                          color: isActive ? "#21a06a" : "#000",
+                          textDecoration: "none",
+                          fontWeight: "bold",
+                        })}
+                      >
+                        <i
+                          className="far fa-folder"
+                          style={{ margin: "0 5px", color: "#21a06a" }}
+                        ></i>
+                        My Order
+                      </NavLink>
+                    </li>
+                    <li style={{ margin: "10px 0px" }}>
+                      <NavLink
+                        to={`${url}/payment`}
+                        style={(isActive) => ({
+                          color: isActive ? "#21a06a" : "#000",
+                          textDecoration: "none",
+                          fontWeight: "bold",
+                        })}
+                      >
+                        <i
+                          className="fab fa-cc-mastercard"
+                          style={{ margin: "0 5px", color: "#21a06a" }}
+                        ></i>
+                        Payment
+                      </NavLink>
+                    </li>
+                    <li style={{ margin: "10px 0px" }}>
+                      <NavLink
+                        to={`${url}/review`}
+                        style={(isActive) => ({
+                          color: isActive ? "#21a06a" : "#000",
+                          textDecoration: "none",
+                          fontWeight: "bold",
+                        })}
+                      >
+                        <i
+                          className="fas fa-comment-medical"
+                          style={{ margin: "0 5px", color: "#21a06a" }}
+                        ></i>
+                        Review
+                      </NavLink>
+                    </li>
+                    <Divider />{" "}
+                  </>
+                )}
                 <Divider />
                 {isAdmin && (
                   <>
@@ -195,7 +200,7 @@ const Dashboard = () => {
             <div>
               <Switch>
                 <Route exact path={path}>
-                  <MyOrder />
+                  {!isAdmin ? <MyOrder /> : <ManageAll />}
                 </Route>
                 <Route path={`${path}/payment`}>
                   <Pay />
