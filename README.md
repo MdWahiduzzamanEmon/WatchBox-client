@@ -10,7 +10,8 @@ This project live link [Click Here](https://watch-box-eb445.web.app/).
 * User can give reviews and it will also display on homepage. And there also add firebase Authentication.
 * Only admin can make another user admin and it will also verified by JWT (Json Web Token)
 * Admin can control buying information,change status about buying ,also can add more product.
-
+* To check ADMIN PANEL use 1. email:admin@admin.com
+                           2. password: 123456
 ### To make this site use--
 * React js
 * Material UI
