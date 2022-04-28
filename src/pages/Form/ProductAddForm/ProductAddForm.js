@@ -3,13 +3,14 @@ import axios from "axios";
 import React, { useState } from "react";
 import useAuth from "../../../Hooks/useAuth";
 import swal from "sweetalert";
-import  {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const ProductAddForm = ({ singleProduct }) => {
   const { user } = useAuth();
   const values = { name: user?.displayName };
   const [fieldValue, setFieldVAlue] = useState(values);
   const history = useHistory();
+
   const handleChange = (e) => {
     const field = e.target.name;
     const value = e.target.value;
@@ -17,6 +18,7 @@ const ProductAddForm = ({ singleProduct }) => {
     newValue[field] = value;
     setFieldVAlue(newValue);
   };
+
   const onSubmit = (e) => {
     const dataVAlue = {
       ...fieldValue,
@@ -33,17 +35,17 @@ const ProductAddForm = ({ singleProduct }) => {
         dataVAlue
       )
       .then((res) => {
-        if (res.data.insertedId) {
+        if (res.data?.insertedId) {
           swal({
             text: "Purchase Successful",
             icon: "success",
             title: "Purchase Successful",
-            Buttons:true
-          }).then((willSuccess) => { 
+            Buttons: true,
+          }).then((willSuccess) => {
             if (willSuccess) {
               history.push("/dashboard");
             }
-          })
+          });
           e.target.reset();
           setFieldVAlue({});
         }
@@ -124,6 +126,14 @@ const ProductAddForm = ({ singleProduct }) => {
           // onClick={handlePurchase}
         >
           Purchase Now
+        </Button>
+        <Button
+          variant="outlined"
+          color="warning"
+          sx={{ mx: 2 }}
+          onClick={() => history.push("/chats")}
+        >
+          Discuss
         </Button>
       </form>
     </div>

@@ -10,6 +10,7 @@ import Dashboard from "../Dashboard/Dashboard";
 import Error from "../Errror/Error";
 import Faq from "../Faq/Faq";
 import Contact from "../Contact/Contact";
+import Chats from "../Form/Chatting/Chats/Chats";
 const Routing = () => {
   return (
     <div>
@@ -41,6 +42,9 @@ const Routing = () => {
           </Route>
           <PrivateRoute path="/dashboard">
             <Dashboard />
+          </PrivateRoute>
+          <PrivateRoute path="/chats">
+            <Chats />
           </PrivateRoute>
           <Route path="*">
             <Error />
